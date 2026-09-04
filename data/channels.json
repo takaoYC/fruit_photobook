@@ -1,0 +1,62 @@
+{
+  "online": [
+    {
+      "id": 1,
+      "name": "台灣角川",
+      "url": "https://www.kadokawa.com.tw/products/9786264682657",
+      "note": "",
+      "status": "in_stock"
+    },
+    {
+      "id": 2,
+      "name": "誠品",
+      "url": "https://www.eslite.com/product/10012011762683205197003",
+      "note": "",
+      "status": "in_stock"
+    },
+    {
+      "id": 3,
+      "name": "博客來",
+      "url": "https://www.books.com.tw/products/0011059457",
+      "note": "",
+      "status": "in_stock"
+    },
+    {
+      "id": 4,
+      "name": "金石堂",
+      "url": "https://www.kingstone.com.tw/basic/2019910060682/",
+      "note": "",
+      "status": "in_stock"
+    },
+    {
+      "id": 5,
+      "name": "墊腳石",
+      "url": "https://www.tcsb.com.tw/9786264682657",
+      "note": "",
+      "status": "in_stock"
+    },
+    {
+      "id": 6,
+      "name": "三民",
+      "url": "https://www.sanmin.com.tw/product/index/015693174",
+      "note": "",
+      "status": "in_stock"
+    }
+  ],
+  "ebook": [
+    {
+      "id": 1,
+      "name": "Readmoo 讀墨",
+      "url": "https://readmoo.com/book/210498801000101",
+      "note": "9/11上架",
+      "status": "not_listed"
+    },
+    {
+      "id": 2,
+      "name": "博客來",
+      "url": "https://www.books.com.tw/products/E050355213",
+      "note": "9/11上架",
+      "status": "not_listed"
+    }
+  ]
+}

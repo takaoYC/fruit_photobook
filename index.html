@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《果實》戲劇寫真書 · 通路查詢</title>
+<meta name="description" content="《果實》戲劇寫真書 實體門市、線上通路、電子書 通路查詢">
+<meta name="theme-color" content="#fcf8f3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M16%2011c-2.7-2.9-7.6-2.4-9.4.9-2%203.6-.7%209.4%202.1%2013%201.3%201.7%202.7%202.7%203.9%202.7%20.9%200%201.9-.4%203.4-.4s2.5.4%203.4.4c1.2%200%202.6-1%203.9-2.7%202.8-3.6%204.1-9.4%202.1-13-1.8-3.3-6.7-3.8-9.4-.9Z%27%20fill%3D%27%23c25a35%27%2F%3E%3Cpath%20d%3D%27M16%2011.4V6.6%27%20stroke%3D%27%237a5a3a%27%20stroke-width%3D%271.8%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27%2F%3E%3Cpath%20d%3D%27M16.7%207.2c1-2.4%203.2-3.5%205.5-3.3.2%202.5-1.1%204.7-3.5%205.3-1%20.3-1.8-.5-2-2Z%27%20fill%3D%27%236b8459%27%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // 淺色為主。
+  (function () {
+    try {
+      var saved = localStorage.getItem('fruit-pb-theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<!-- 線條圖示集 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-pin" viewBox="0 0 24 24">
+    <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24">
+    <path d="M6.4 3.5h3l1.5 3.8-2 1.4a12 12 0 0 0 6.4 6.4l1.4-2 3.8 1.5v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.7a2 2 0 0 1 2-2.2Z"/>
+  </symbol>
+  <symbol id="i-box" viewBox="0 0 24 24">
+    <path d="M3.5 7.6 12 3.4l8.5 4.2v8.8L12 20.6l-8.5-4.2Z"/><path d="M3.5 7.6 12 11.9l8.5-4.3M12 11.9v8.7"/>
+  </symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24">
+    <path d="M12 3.6 21 19.4H3Z"/><path d="M12 9.6v4.2"/><circle cx="12" cy="16.6" r=".5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.6"/><path d="m15.4 8.6-1.9 4.9-4.9 1.9 1.9-4.9Z"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-locate" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="7.2"/><circle cx="12" cy="12" r="2.4"/><path d="M12 1.8v3M12 19.2v3M22.2 12h-3M4.8 12h-3"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand" id="brandText">果實 戲劇寫真書</div>
+    <div class="topbar-actions">
+      <a class="badge-link" id="linkUchutecho" href="#" target="_blank" rel="noopener" title="宇宙手帖">宇宙手帖</a>
+      <a class="badge-link" id="linkPP12" href="#" target="_blank" rel="noopener" title="12週年">12週年</a>
+      <span class="theme-toggle-group">
+        <button class="toggle-btn" id="themeToggle" aria-label="切換淺色／深色模式"></button>
+        <span class="toggle-icon" id="themeIcon">☾</span>
+      </span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="star-row">✦✧✦</div>
+    <div class="kicker">Channel Lookup</div>
+    <h1 id="siteTitle">《果實》戲劇寫真書</h1>
+    <p id="siteSubtitle">通路查詢</p>
+    <div class="hero-rule"></div>
+  </div>
+
+  <div class="disclaimer">
+    <svg class="ic mark" aria-hidden="true"><use href="#i-alert"/></svg>
+    <div>
+      <span id="disclaimerText">本頁面庫存與通路資訊僅供參考，實際庫存、售價與上架狀況請以各門市／通路現場公告為準。</span>
+      <span class="updated" id="updatedText">資料更新至：—</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="physical">實體門市</button>
+    <button class="tab-btn" data-tab="online">線上通路</button>
+    <button class="tab-btn" data-tab="ebook">電子書</button>
+  </div>
+
+  <!-- 實體門市 -->
+  <section class="tab-panel active" id="panel-physical">
+    <div class="controls">
+      <input type="search" id="storeSearch" placeholder="搜尋門市名稱或地址…">
+      <select id="regionFilter" aria-label="地區篩選">
+        <option value="all">全部地區</option>
+        <option value="north">北部</option>
+        <option value="central">中部</option>
+        <option value="south">南部</option>
+        <option value="east">東部</option>
+      </select>
+      <select id="stockFilter" aria-label="庫存篩選">
+        <option value="all">全部庫存狀態</option>
+        <option value="in_stock">尚有庫存</option>
+        <option value="out_of_stock">目前無庫存</option>
+      </select>
+      <button class="btn" id="locateBtn">
+        <svg class="ic" aria-hidden="true"><use href="#i-locate"/></svg>定位我的位置
+      </button>
+      <span class="geo-status" id="geoStatus"></span>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="storeListContainer"><div class="empty-state">載入中…</div></div>
+  </section>
+
+  <!-- 線上通路 -->
+  <section class="tab-panel" id="panel-online">
+    <div class="channel-grid" id="onlineGrid"><div class="empty-state">載入中…</div></div>
+  </section>
+
+  <!-- 電子書 -->
+  <section class="tab-panel" id="panel-ebook">
+    <div class="channel-grid" id="ebookGrid"><div class="empty-state">載入中…</div></div>
+  </section>
+
+</div>
+
+<footer>
+  <p><span class="star">✦</span>資料僅供參考，請以官方公告為準<span class="star">✦</span></p>
+</footer>
+
+<!-- 門市詳細資訊 -->
+<div class="modal-overlay" id="storeModalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="modal-close" id="modalClose" aria-label="關閉">
+      <svg class="ic" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+    <div class="region-tag" id="modalRegion"></div>
+    <h2 id="modalName"></h2>
+    <div class="modal-row">
+      <svg class="ic icon" aria-hidden="true"><use href="#i-pin"/></svg><span id="modalAddress"></span>
+    </div>
+    <div class="modal-row">
+      <svg class="ic icon" aria-hidden="true"><use href="#i-phone"/></svg><a id="modalPhone" href="#"></a>
+    </div>
+    <div class="modal-row">
+      <svg class="ic icon" aria-hidden="true"><use href="#i-box"/></svg><span id="modalStock" class="badge"></span>
+    </div>
+    <div class="modal-distance" id="modalDistance" style="display:none;"></div>
+    <div class="modal-actions">
+      <a class="btn primary" id="modalDirections" href="#" target="_blank" rel="noopener">
+        <svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>Google 地圖路線
+      </a>
+      <a class="btn" id="modalCall" href="#">
+        <svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>撥打電話
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/theme.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
